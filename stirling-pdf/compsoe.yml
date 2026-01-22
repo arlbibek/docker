@@ -1,0 +1,21 @@
+services:
+  stirling-pdf:
+    image: stirlingtools/stirling-pdf:latest
+    container_name: stirling-pdf
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./stirling-data/tessdata:/usr/share/tessdata # OCR language files
+      - ./stirling-data/configs:/configs # Settings & database
+      - ./stirling-data/logs:/logs # Application logs
+      - ./stirling-data/customFiles:/customFiles:rw # Custom branding files
+      - ./stirling-data/pipeline:/pipeline # Automation configs
+    environment:
+      - SECURITY_ENABLELOGIN=false # Enable user authentication
+      - LANGS=en_GB # Change to your locale
+      - SYSTEM_DEFAULTLOCALE=en-GB # Default locale
+      - SYSTEM_GOOGLEVISIBILITY=false # Hide from search engines
+      - SYSTEM_ROOTURIPATH=/ # Base URL path
+      - SYSTEM_CONNECTIONTIMEOUTMINUTES=5 # Connection timeout
+      - SYSTEM_MAXFILESIZE=2000 # Max file size in MB

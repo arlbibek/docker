@@ -1,0 +1,22 @@
+services:
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+      - ./files:/files
+    environment:
+      # n8n settings
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_HOST=n8n.example.com
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - N8N_RUNNERS_ENABLED=true
+      - NODE_ENV=production
+      - WEBHOOK_URL=https://n8n.example.com
+      - N8N_EDITOR_BASE_URL=https://n8n.example.com
+      - GENERIC_TIMEZONE=Asia/Kathmandu
+      - TZ=Asia/Kathmandu
