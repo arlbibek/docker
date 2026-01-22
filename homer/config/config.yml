@@ -1,0 +1,291 @@
+---
+# Homepage configuration
+# See https://fontawesome.com/search for icons options
+# Optional: Use external configuration file.
+# Using this will ignore remaining config in this file
+# externalConfig: https://example.com/server-luci/config.yaml
+title: "Web portals dashboard"
+subtitle: "Trinity Technology"
+documentTitle: "Welcome to Trinity Technology's Web Portals Dashboard — your quick access point to key internal and external work-related pages." # Customize the browser tab text
+# logo: "logo.png"
+logo: "https://www.trinitytech.com.np/favicon.ico"
+# Alternatively a fa icon can be provided:
+# icon: "logo.png"
+header: true # Set to false to hide the header
+# Optional: Different hotkey for search, defaults to ""
+# hotkey:
+#   search: "Shift"
+footer: "Managed with ❤️ by <a href='https://trinitytech.com.np'>Trinity Technology Pvt. Ltd.</a>" # set false if you want to hide it.
+columns: "4" # "auto" or number (must be a factor of 12: 1, 2, 3, 4, 6, 12)
+connectivityCheck:
+  true # whether you want to display a message when the apps are not accessible anymore (VPN disconnected for example).
+  # You should set it to true when using an authentication proxy, it also reloads the page when a redirection is detected when checking connectivity.
+# Optional: Proxy / hosting option
+proxy:
+  useCredentials: false # send cookies & authorization headers when fetching service specific dataSet to true if you use an authentication proxyCan be overrided on service level.
+  headers: # send custom headers when fetching service specific dataCan also be set on a service level.
+    Test: "Example"
+    Test1: "Example1"
+# Set the default layout and color scheme
+defaults:
+  layout: columns # Either 'columns', or 'list'
+  colorTheme: auto # One of 'auto', 'light', or 'dark'
+# Optional theming
+theme: default # 'default' or one of the themes available in 'src/assets/themes'.
+# Optional custom stylesheet
+# Will load custom CSS filesEspecially useful for custom icon sets.
+# stylesheet:
+#   - "../assets/custom.css"
+# Here is the exhaustive list of customization parameters
+# However all value are optional and will fallback to default if not set.
+# if you want to change only some of the colors, feel free to remove all unused key.
+colors:
+  light:
+    highlight-primary: "#e2a93b" # primary accent (gold tone)
+    highlight-secondary: "#e2a93b" # secondary accent (bronze)
+    highlight-hover: "#B8933A"
+    background: "#F5F5F5"
+    card-background: "#FFFFFF"
+    card-shadow: "rgba(0, 0, 0, 0.1)"
+    text: "#3E3D35" # primary body text
+    text-header: "#FFFFFF" # header text (on dark background)
+    text-title: "#303030"
+    text-subtitle: "#424242"
+    link: "#8F7134"
+    link-hover: "#3E3D35"
+
+  dark:
+    highlight-primary: "#D5AB4B" # gold
+    highlight-secondary: "#8F7134" # bronze
+    highlight-hover: "#B8933A"
+    background: "#09121E" # exact from icon
+    card-background: "#151A21"
+    text: "#EAEAEA"
+    text-header: "#FFFFFF"
+    text-title: "#FAFAFA"
+    text-subtitle: "#F5F5F5"
+    card-shadow: "rgba(0, 0, 0, 0.4)"
+    link: "#D5AB4B"
+    link-hover: "#8F7134"
+
+# Optional message
+# message:
+
+# style: "is-info" # is-primary, is-link, is-success, is-warning, is-danger, is-info
+# title: "Welcome to Shikhar's Web portals dashboard! "
+# logo: ""
+# icon: "fa-solid fa-circle-info"
+# content: "Your one stop dashboard to quickly access frequently used web portals and applications within Shikhar Insurance. <br/>Visit: <a href='https://home.shikharinsurance.com/'>home.shikharinsurance.com</a>"
+
+# Optional navbar
+links:
+  # this will link to a second homer page that will load config from page2.yml and keep default config values as in config.yml file
+  # see url field and assets/page.yml used in this example:
+  # - name: "Website"
+  #   icon: "fa-solid fa-globe"
+  #   url: "https://www.trinitytech.com.np"
+  #   target: "_blank" # optional html tag target attribute
+  - name: "LinkedIn"
+    icon: "fa-brands fa-linkedin"
+    url: "https://linkedin.com/company/thetrinitytech"
+    target: "_blank" # optional html tag target attribute
+  - name: "GitHub"
+    icon: "fa-brands fa-github"
+    url: "https://github.com/thetrinitytech"
+    target: "_blank" # optional html tag target attribute
+  - name: "YouTube"
+    icon: "fa-brands fa-youtube"
+    url: "https://www.youtube.com/@thetrinitytech"
+    target: "_blank" # optional html tag target attribute
+  - name: "Facebook"
+    icon: "fa-brands fa-facebook"
+    url: "https://www.facebook.com/thetrinitytech"
+    target: "_blank" # optional html tag target attribute
+  - name: "Instagram"
+    icon: "fa-brands fa-instagram"
+    url: "https://instagram.com/thetrinitytech"
+    target: "_blank" # optional html tag target attribute
+  - name: "TikTok"
+    icon: "fa-brands fa-tiktok"
+    url: "https://tiktok.com/thetrinitytech"
+    target: "_blank" # optional html tag target attribute
+  - name: "Maps"
+    icon: "fas fa-map-marker-alt"
+    url: "https://maps.app.goo.gl/2trMTuGFminBtgka6"
+  - name: "Messenger"
+    icon: "fa-brands fa-facebook-messenger"
+    url: "https://m.me/thetrinitytech"
+    target: "_blank" # optional html tag target attribute
+  - name: "WhatsApp"
+    icon: "fa-brands fa-whatsapp"
+    url: "https://wa.me/+9779706543148"
+    target: "_blank" # optional html tag target attribute
+services:
+  - name: "At a Glance"
+    icon: "fas fa-sun"
+    items:
+      - name: "Weather - Kathmandu"
+        locationId: "1283240" # Kathmandu City ID for OpenWeatherMap
+        apikey: "" # insert your own API key here. Request one from https://openweathermap.org/api.
+        units: "metric" # Options: metric, imperial, kelvin
+        background: "circle" # Options: square, circle, none
+        type: "OpenWeather"
+      - name: "Office Address"
+        subtitle: "2nd Floor, Machapokhari Shopping Center"
+        type: "CopyToClipboard"
+        clipboard: "2nd Floor, Machapokhari Shopping Center, Machapokhari, Kathmandu, Nepal"
+      - name: "Company Registration"
+        subtitle: "No.: 378771/82/83"
+        type: "CopyToClipboard"
+        clipboard: "378771/82/83"
+      - name: "PAN"
+        subtitle: "No. 622480884"
+        type: "CopyToClipboard"
+        clipboard: "622480884"
+      - name: "Official Contact"
+        subtitle: "01-4977634, 9866-998785"
+        type: "CopyToClipboard"
+        clipboard: "01-4977634, 9866-998785"
+  - name: "Public portals"
+    icon: "fa-solid fa-globe"
+    items:
+      - name: "Mail"
+        logo: "https://ssl.gstatic.com/images/branding/product/2x/hh_gmail_96dp.png"
+        subtitle: "Email communication"
+        keywords: ""
+        quick:
+          - name: "Gmail"
+            url: "https://mail.google.com/"
+            target: "_blank"
+          - name: "Outlook"
+            url: "https://outlook.office.com/mail/"
+            target: "_blank"
+      - name: "Cloudflare"
+        logo: "https://dash.cloudflare.com/favicon-32x32.png"
+        subtitle: "DNS and CDN"
+        keywords: "cloudflare, dns, cdn, website, security, performance, analytics"
+        url: "https://dash.cloudflare.com"
+        target: "_blank"
+      - name: "Domain Registar"
+        logo: "https://register.com.np/images/favicon.png"
+        subtitle: ".np Domain Registration"
+        keywords: ""
+        url: "https://register.com.np"
+        target: "_blank"
+  - name: "Customer facing sites"
+    icon: "fa-solid fa-window-maximize"
+    items:
+      - name: "Website"
+        logo: "https://trinitytech.com.np/favicon.ico"
+        subtitle: "Official website"
+        keywords: ""
+        url: "https://trinitytech.com.np"
+        target: "_blank"
+      - name: "Status Page"
+        logo: "https://status.trinitytech.com.np/favicon.ico"
+        subtitle: "Service Status Page"
+        keywords: "status"
+        url: "https://status.trinitytech.com.np"
+        target: "_blank"
+  - name: "Employee facing sites"
+    icon: "fa-solid fa-network-wired"
+    items:
+      - name: "Homer (this page)"
+        logo: "https://github.com/bastienwirtz/homer/blob/main/public/logo.png?raw=true"
+        subtitle: "Web portals dashboard"
+        keywords: ""
+        url: "http://sites.trinitytech.com.np"
+        target: "_blank"
+      - name: "Vault Warden"
+        logo: "https://vault.trinitytech.com.np/images/apple-touch-icon.png"
+        subtitle: "Password Manager"
+        keywords: ""
+        url: "https://vault.trinitytech.com.np"
+        target: "_blank"
+      - name: "Mattermost"
+        logo: "https://teams.trinitytech.com.np/static/files/20b39a15c40e4db238f1.png"
+        subtitle: "Internal communication"
+        keywords: ""
+        url: "https://teams.trinitytech.com.np"
+        target: "_blank"
+      - name: "n8n"
+        logo: "https://n8n.trinitytech.com.np/favicon.ico"
+        subtitle: "Workflow automation"
+        keywords: ""
+        url: "https://n8n.trinitytech.com.np/"
+        target: "_blank"
+      - name: "SpeedTest Tracker"
+        logo: "https://speed.trinitytech.com.np/favicon.ico"
+        subtitle: "Track internet speed"
+        keywords: ""
+        url: "https://speed.trinitytech.com.np/"
+        target: "_blank"
+  - name: "Administration portals"
+    icon: "fa-solid fa-network-wired"
+    items:
+      - name: "Arcane"
+        logo: "https://docker.trinitytech.com.np/img/pwa/icon-128x128.png"
+        subtitle: "Docker environments"
+        keywords: ""
+        url: "https://docker.trinitytech.com.np/"
+        target: "_blank"
+  - name: "Useful sites"
+    icon: "fa-solid fa-bookmark"
+    items:
+      - name: "OnlineKhabar"
+        logo: "https://www.onlinekhabar.com/wp-content/uploads/2017/05/logo-mobile1.png"
+        subtitle: "Business & general news"
+        keywords: "online, khabar, news, business, banking, credit, profit, tourism, nepal, economy, politics, sports, entertainment"
+        url: "https://www.onlinekhabar.com"
+        target: "_blank"
+      - name: "Techpana"
+        logo: "https://techpana.prixacdn.net/static/assets/images/favicon.ico"
+        subtitle: "Tech News Nepal"
+        url: "https://techpana.com"
+        target: "_blank"
+      - name: "Nepali Calendar"
+        logo: "https://nepalicalendar.rat32.com/images/favicon.ico"
+        subtitle: "BS calendar based on MoI"
+        keywords: "calendar, nepali, bikram, sambat, date, festivals, holidays, panchang, tithis, events, converter, bs, ad"
+        url: "https://nepalicalendar.rat32.com"
+        target: "_blank"
+      - name: "Google Maps"
+        logo: "https://www.google.com/images/branding/product/ico/maps15_bnuw3a_32dp.ico"
+        subtitle: "View maps and directions"
+        keywords: "navigation, directions, location, route, travel, gps, traffic, google maps, map"
+        url: "https://www.google.com/maps"
+        target: "_blank"
+      - name: "SpeedTest"
+        logo: "https://fast.com/assets/favicons/android-icon-192x192.png"
+        subtitle: "Check your internet speed"
+        keywords: "speed, test, internet, bandwidth, connection, download, upload, latency, ping, network, performance, fast"
+        url: "https://fast.com"
+        target: "_blank"
+  - name: "Typing & Keyboarding"
+    icon: "fas fa-keyboard"
+    items:
+      - name: "TypingClub"
+        logo: "https://static.typingclub.com/m/favicon.png"
+        subtitle: "Learn typing from basic"
+        url: "https://www.edclub.com/sportal/program-3.game"
+      - name: "typing.com"
+        logo: "https://uptime.com/media/website_profiles/typing.com.png"
+        subtitle: "Learn to type faster"
+        url: "https://www.typing.com"
+      - name: "keybr.com"
+        logo: "https://www.keybr.com/favicon.ico"
+        subtitle: "Type at the speed of thought"
+        url: "https://www.keybr.com"
+      - name: "Monkeytype"
+        logo: "https://monkeytype.com/images/favicon/favicon.ico"
+        subtitle: "Test your typing speed"
+        url: "https://monkeytype.com"
+  - name: "Level up"
+    icon: "fa-solid fa-gamepad"
+    items:
+      - name: "Human Benchmark"
+        subtitle: "Braingames & congnative tests"
+        url: "https://humanbenchmark.com"
+        logo: "https://humanbenchmark.com/favicon.ico"
+        keywords: "human, benchmark, brain, games, cognitive, tests"
+        target: "_blank"
