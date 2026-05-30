@@ -1,0 +1,24 @@
+services:
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:latest
+    restart: unless-stopped
+    container_name: speedtest-tracker
+    ports:
+      - 8181:80
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - APP_KEY=base64:V82vBf9d2CfUzR6Auua3fYombUZLNtyIsHu2xmNJnOc=
+      - DB_CONNECTION=sqlite
+      - APP_URL=https://speed.example.com
+      - ASSET_URL=https://speed.example.com
+      - APP_TIMEZONE=Asia/Kathmandu
+      - DISPLAY_TIMEZONE=Asia/Kathmandu
+      - DATETIME_FORMAT=M d, Y H:i
+      - PUBLIC_DASHBOARD=true
+      - SPEEDTEST_SCHEDULE=6 * * * *
+      - SPEEDTEST_INTERNET_CHECK_HOSTNAME=www.google.com
+      - SPEEDTEST_INTERNET_CHECK_ENABLED=true
+    volumes:
+      - ./data:/config
+      - ./data/ssl-keys:/config/keys

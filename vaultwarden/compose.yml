@@ -1,0 +1,16 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    env_file:
+      - .env # update the .env file with your values
+    volumes:
+      - ./vw-data/:/data/
+    ports:
+      - 0.0.0.0:8000:80
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
