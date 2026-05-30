@@ -10,6 +10,7 @@ services:
       - ./files:/files
     environment:
       # n8n settings
+      - N8N_ENCRYPTION_KEY=your_random_secret_key_here # genreate key with openssl rand -base64 32
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
       - N8N_HOST=n8n.example.com
       - N8N_PORT=5678
@@ -20,3 +21,10 @@ services:
       - N8N_EDITOR_BASE_URL=https://n8n.example.com
       - GENERIC_TIMEZONE=Asia/Kathmandu
       - TZ=Asia/Kathmandu
+      # smtp
+      - N8N_SMTP_HOST=smtp.example.com
+      - N8N_SMTP_PORT=587
+      - N8N_SMTP_USER=no-reply@example.com
+      - N8N_SMTP_PASS=strong_password
+      - N8N_SMTP_SENDER=no-reply@example.com
+      - N8N_SMTP_SSL=false
