@@ -1,0 +1,10 @@
+services:
+  gophish:
+    image: gophish/gophish:latest
+    container_name: gophish_server
+    ports:
+      - "3333:3333"
+      - "8011:80"  
+    volumes:
+      - ./gophish.db:/opt/gophish/gophish.db  
+    restart: unless-stopped
